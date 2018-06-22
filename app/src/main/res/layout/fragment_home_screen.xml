@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/screenbck"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/home_marginM"
+            android:layout_marginBottom="@dimen/home_marginM"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/bannerPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+                </android.support.v4.view.ViewPager>
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/bannerTabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    app:tabBackground="@drawable/indicator_selector"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp"/>
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_margin="@dimen/home_marginM"
+                android:id="@+id/categoryRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/prodRecycler"
+                android:layout_margin="@dimen/home_marginM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/home_marginM"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

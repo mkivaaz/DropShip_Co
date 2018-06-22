@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#666666</color>
+    <color name="colorPrimaryDark">#777777</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="ThunderBird">#D91E18</color>
+    <color name="OldBrick">#96281B</color>
+    <color name="WhiteSmoke">#ECECEC</color>
+    <color name="Black">#222222</color>
+    <color name="Gallery">#EEEEEE</color>
+    <color name="Chambray">#3A539B</color>
+    <color name="Cascade">#95A5A6</color>
+</resources>
