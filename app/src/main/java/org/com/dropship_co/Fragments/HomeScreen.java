@@ -7,14 +7,18 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import org.com.dropship_co.Adapter.BannerAdapter;
+import org.com.dropship_co.Adapter.HomeCategoryAdapter;
 import org.com.dropship_co.Data.Banner;
+import org.com.dropship_co.Data.Category;
 import org.com.dropship_co.R;
 
 import java.util.ArrayList;
@@ -27,6 +31,7 @@ public class HomeScreen extends Fragment {
     ViewPager bannerPager;
     TabLayout bannerTab;
     RecyclerView categ_recycler, prod_recycler;
+    Runnable runnable;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,6 +49,25 @@ public class HomeScreen extends Fragment {
         prod_recycler = view.findViewById(R.id.prodRecycler);
 
         addPromo(bannerPager);
+        loadCategRecycler(addPopCategory());
+    }
+
+    private void loadCategRecycler(List<Category> categories) {
+        HomeCategoryAdapter adapter = new HomeCategoryAdapter(getContext(),categories);
+        categ_recycler.setAdapter(adapter);
+        categ_recycler.setLayoutManager(new GridLayoutManager(getContext(),2));
+    }
+
+    private List<Category> addPopCategory() {
+        List<Category> dataList = new ArrayList<>();
+        dataList.add(new Category("Shirts"));
+        dataList.add(new Category("T-Shirts"));
+        dataList.add(new Category("Pants"));
+        dataList.add(new Category("Shoes"));
+        dataList.add(new Category("Hats"));
+        dataList.add(new Category("Watches"));
+
+        return dataList;
     }
 
     private void addPromo(ViewPager bannerPager) {
@@ -76,43 +100,31 @@ public class HomeScreen extends Fragment {
 
     private void TimerMethod(BannerAdapter adapter, final ViewPager viewPager) {
         final int currentPos = viewPager.getCurrentItem();
-
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        viewPager.setCurrentItem(currentPos+1,true);
+                    }
+                };
+            }
+        };
         if (currentPos < adapter.getCount()){
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    viewPager.setCurrentItem(currentPos+1,true);
-                }
-            });
+            if (getActivity() ==  null){
+                return;
+            }else {
+                getActivity().runOnUiThread(runnable);
+            }
 
         }
+
     }
 
-    private class SliderTimer extends TimerTask{
-        private int delay;
-        private int pagerIndex = -1;
-        BannerAdapter adapter;
-        ViewPager viewPager;
-        public SliderTimer(int delay, BannerAdapter adapter, ViewPager viewPager) {
-            this.delay = delay;
-            this.adapter = adapter;
-            this.viewPager = viewPager;
-        }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
 
-        @Override
-        public void run() {
-            Handler h = new Handler();
-
-            h.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    pagerIndex++;
-                    if (pagerIndex >= adapter.getCount()){
-                        pagerIndex = 0;
-                    }
-                    viewPager.setCurrentItem(pagerIndex);
-                }
-            },delay);
-        }
     }
 }

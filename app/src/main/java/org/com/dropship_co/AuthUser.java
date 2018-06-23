@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
 import org.com.dropship_co.Adapter.AuthPagerAdapter;
-import org.com.dropship_co.Fragments.HomeScreen;
 import org.com.dropship_co.Fragments.LoginScreen;
 import org.com.dropship_co.Fragments.SignUpScreen;
 
@@ -41,7 +41,6 @@ public class AuthUser extends AppCompatActivity {
 
     private void addTabs(ViewPager viewPager) {
         AuthPagerAdapter adapter = new AuthPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new HomeScreen(),"Home");
         adapter.addFrag(new LoginScreen(), "Login");
         adapter.addFrag(new SignUpScreen(),"Sign Up");
         viewPager.setAdapter(adapter);
