@@ -35,10 +35,12 @@
             </RelativeLayout>
 
             <android.support.v7.widget.RecyclerView
+                android:padding="5dp"
                 android:layout_margin="@dimen/home_marginM"
                 android:id="@+id/categoryRecycler"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"/>
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/prodRecycler"

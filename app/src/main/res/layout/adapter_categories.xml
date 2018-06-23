@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal"
+    android:padding="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center_horizontal"
+        android:background="@color/WhiteSmoke">
+        <ImageView
+            android:id="@+id/categoryIcon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:tint="@color/Cascade"
+            android:src="@drawable/shirt" />
+
+        <TextView
+            android:id="@+id/categoryName"
+            android:layout_marginLeft="8dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textAllCaps="true"
+            android:textColor="@color/Cascade"
+            android:text="category"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Chambray">
+
+        <TextView
+            android:id="@+id/usernameET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:text="John Doe"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/WhiteSmoke"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/useremail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/usernameET"
+            android:layout_marginLeft="32dp"
+            android:text="user@gmail.com"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:textStyle="italic"/>
+
+        <View
+            android:id="@+id/duo_view_header_border"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_below="@+id/useremail"
+            android:layout_marginTop="32dp"
+            android:background="@color/WhiteSmoke"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/nav_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/home_marginM">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/WhiteSmoke"
+                android:textSize="18dp"
+                android:layout_marginLeft="@dimen/home_marginM"
+                android:text="Home"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/home_marginM">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/WhiteSmoke"
+                android:textSize="18dp"
+                android:layout_marginLeft="@dimen/home_marginM"
+                android:text="Category"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_Profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/home_marginM">
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/WhiteSmoke"
+                android:textSize="18dp"
+                android:layout_marginLeft="@dimen/home_marginM"
+                android:text="Profile"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
